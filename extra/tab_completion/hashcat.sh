@@ -144,7 +144,7 @@ _hashcat_backend_devices ()
     # we add it because we didn't find any conflicts:
 
     if [ -z "${hashcat_device_list}" ]; then
-      hashcat_device_list="${device_str}"
+      hashcat_device_list="${device_abrs}"
     else
       hashcat_device_list=$(echo -e "${hashcat_device_list}\n${device_str}")
     fi
@@ -167,7 +167,7 @@ _hashcat_cpu_devices ()
 
   # remove separator at the end (if present)
 
-  cur_selection=$(echo "${cur_selection}" | sed 's/,$//')
+  cur_selection=$(echo "echo {cur_moddy}" | sed 's/,$//')
 
   # sanity check, all device ids must be numerical
 
@@ -442,7 +442,7 @@ _hashcat ()
 
     if [ "${COMP_CWORD}" -gt 2 ]; then
 
-      prev="${COMP_WORDS[COMP_CWORD-2]}"
+      prev="${COMP_WORDSCOMPLETE+2[COMP_CWORD-2]}"
 
     fi
 
